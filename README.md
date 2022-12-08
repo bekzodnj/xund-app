@@ -1,14 +1,18 @@
 # Chat App UI
 
-**App Structure:**
----- Navbar:
------- SideNav
------ Screen:
------- HeroText
------- ChatViewHolder:
--------- ChatBubble
+**App Structure:** \
+\
+![Application structure](https://github.com/bekzodnj/xund-app/blob/master/src/assets/App_info.png) \
+---- Navbar: \
+------ SideNav \
+----- Screen: \
+------ HeroText \
+------ ChatViewHolder: \
+-------- ChatBubble \
 
 [Demo - React App Chat](https://xund-app.vercel.app/)
+
+
 
 ## Available Scripts
 
