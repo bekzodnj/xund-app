@@ -8,3 +8,39 @@
   position: relative;
   z-index: 2;
 }
+
+#side_nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  right: 0;
+  background-color: #2372b8;
+  overflow-x: hidden;
+  transition: 0.2s;
+  padding-top: 60px;
+  color: #fff;
+}
+
+#side_nav button {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  transition: 0.3s;
+}
+
+#side_nav button:hover,
+#side_nav #close_icon:hover {
+  color: #e2e2e2;
+}
+
+#side_nav #close_icon {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 25px;
+  margin-left: 50px;
+  color: #fff;
+}

@@ -2,6 +2,7 @@ type ChatBubbleProps = {
   text: string;
   avatar?: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 export const QuestionChatBubble: React.FC<ChatBubbleProps> = ({
@@ -23,6 +24,7 @@ export const QuestionChatBubble: React.FC<ChatBubbleProps> = ({
 export const AnswerChatBubble: React.FC<ChatBubbleProps> = ({
   text,
   onClick,
+  disabled,
 }) => {
   return (
     <div className='mb-4 self-end' onClick={onClick}>

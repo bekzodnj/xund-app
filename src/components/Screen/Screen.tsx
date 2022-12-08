@@ -36,7 +36,11 @@ export function Screen() {
                 <AnswerChatBubble
                   text={answer.text}
                   key={answer.id}
-                  onClick={() => setcurrentStepNumber(currentStepNumber + 1)}
+                  onClick={() => {
+                    if (currentStepNumber === i) {
+                      setcurrentStepNumber(currentStepNumber + 1);
+                    }
+                  }}
                 />
               );
             }
@@ -46,14 +50,24 @@ export function Screen() {
             <NumberInput
               text={item.text}
               onClick={() => setcurrentStepNumber(currentStepNumber + 1)}
+              key={'number_input'}
             />
           );
         }
       }
     }
+    if (jsonData.length <= currentStepNumber) {
+      uiElements.push(
+        <QuestionChatBubble
+          text='Thank you for using our service.'
+          avatar={botIcon}
+          key={'thank_you_note'}
+        />
+      );
+    }
   }
   return (
-    <div className='flex justify-center h-screen'>
+    <div className='flex justify-center'>
       {/* phone screen with white-background */}
       <ChatScreen>
         {/* Logotype and slogan */}
@@ -61,21 +75,6 @@ export function Screen() {
 
         {/* container div for chat bubbles */}
         <section id='messages-wrap' className='flex flex-col'>
-          {/* <QuestionChatBubble
-            text='The chat bubble itself is a section with the classes relative p-2 rounded-lg flex flex-col-reverse space-y-3, which give it some padding, rounded corners, and a flexible layout with reversed columns and vertical spacing.'
-            avatar={botIcon}
-            // onClick={() => setcurrentStepNumber(currentStepNumber + 1)}
-          />
-
-          <AnswerChatBubble text='Symptomcheck starten' avatar={botIcon} />
-
-          <QuestionChatBubble
-            text='The chat bubble itself is a section with the classes relative p-2 rounded-lg flex flex-col-reverse space-y-3, which give it some padding, rounded corners, and a flexible layout with reversed columns and vertical spacing.'
-            avatar={botIcon}
-          />
-
-          <NumberInput /> */}
-
           {uiElements
             ? uiElements.map((item) => {
                 return item;
@@ -94,7 +93,7 @@ type ChatScreenProps = {
 /* phone screen with white-background */
 const ChatScreen = ({ children }: ChatScreenProps) => {
   return (
-    <div className='bg-white pt-40 px-6 pb-9 w-full sm:w-3/6 text-center border border-red-500 overflow-y-scroll'>
+    <div className='bg-white pt-40 px-6 pb-9 w-full sm:w-3/6 text-center'>
       {children}
     </div>
   );
