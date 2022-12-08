@@ -7,7 +7,7 @@ import {
 } from './components/ChatBubble';
 
 import botIcon from '../../assets/images/bot_icon@2x.png';
-import jsonData from '../../assets/local-data.json';
+//import jsonData from '../../assets/local-data.json';
 
 export function ChatViewHolder() {
   // each item in the array is a question or answer - we'll use this to render the chat bubbles
@@ -15,12 +15,38 @@ export function ChatViewHolder() {
   const [currentStepNumber, setcurrentStepNumber] = useState(0);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
+  // state variable to store fetched data
+
+  interface jsonDataItemType {
+    id: string;
+    text: string;
+    type: string;
+    answers: answerItemType[];
+  }
+
+  interface userResponseType {
+    questionId: string;
+    answer: Object;
+  }
+
+  const [jsonData, setJsonData] = useState<jsonDataItemType[]>([]);
+  const [userResponses, setUserResponses] = useState<userResponseType[]>([]);
+
+  useEffect(() => {
+    fetch('https://api.npoint.io/36fa5029553b39404f58')
+      .then((response) => response.json())
+      .then((data) => {
+        setJsonData(data);
+        console.log(data);
+      });
+  }, []);
+
   // scroll to bottom when new message is added
   useEffect(() => {
     scrollToBottom();
   }, [currentStepNumber]);
 
-  // scroll to bottom handler
+  // scroll to bottom
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
       messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -54,6 +80,10 @@ export function ChatViewHolder() {
                 onClick={() => {
                   if (currentStepNumber === i) {
                     setcurrentStepNumber(currentStepNumber + 1);
+                    setUserResponses((userResponses) => [
+                      ...userResponses,
+                      { questionId: item.id, answer: { id: answer.id } },
+                    ]);
                   }
                 }}
               />
@@ -63,13 +93,19 @@ export function ChatViewHolder() {
           chatElements.push(
             <NumberInput
               text={item.text}
-              onClick={() => setcurrentStepNumber(currentStepNumber + 1)}
+              onClick={() => {
+                setcurrentStepNumber(currentStepNumber + 1);
+              }}
+              setUserResponses={setUserResponses}
+              questionId={item.id}
               key={'number_input'}
             />
           );
         }
       }
     }
+
+    // last response - thank you note
     if (jsonData.length <= currentStepNumber) {
       chatElements.push(
         <QuestionChatBubble
@@ -78,6 +114,9 @@ export function ChatViewHolder() {
           key={'thank_you_note'}
         />
       );
+
+      // print user responses
+      console.log(userResponses);
     }
   }
 

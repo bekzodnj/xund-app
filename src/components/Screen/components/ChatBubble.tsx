@@ -48,10 +48,14 @@ export const AnswerChatBubble: React.FC<ChatBubbleProps> = ({
 type NumberInputProps = {
   text: string;
   onClick: () => void;
+  setUserResponses: (userResponses: any) => void;
+  questionId: string;
 };
 export const NumberInput: React.FC<NumberInputProps> = ({
   text = '',
   onClick,
+  setUserResponses,
+  questionId,
 }) => {
   return (
     <div className='mb-4 self-end'>
@@ -62,6 +66,12 @@ export const NumberInput: React.FC<NumberInputProps> = ({
         onKeyPress={(e) => {
           if (e.key === 'Enter') {
             onClick();
+
+            let inputValue = (e.target as HTMLInputElement).value;
+            setUserResponses((userResponses: any) => [
+              ...userResponses,
+              { questionId: questionId, answer: { value: inputValue } },
+            ]);
             if (document.activeElement instanceof HTMLElement) {
               document.activeElement.blur();
             }

@@ -7,7 +7,6 @@ import { ChatViewHolder } from './ChatViewHolder';
  * displays the screen with white-background at the center of the page
  * shows the logotype and slogan
  * shows the chat bubbles inside ChatViewHolder
- *
  */
 export function Screen() {
   return (
