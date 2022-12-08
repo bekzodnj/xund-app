@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import topBarLogo from '../../assets/images/topbar_logo@2x.png';
+import topBarLogo from '../../assets/images/topbar_logo@3x.png';
 import './Navbar.css';
 
 export function Navbar() {
@@ -33,7 +33,11 @@ export function Navbar() {
         >
           <span> &#10006;</span>
         </button>
-        <button>
+        <button
+          onClick={() => {
+            window.location.reload();
+          }}
+        >
           <span>&#8635;</span> Restart
         </button>
       </div>
