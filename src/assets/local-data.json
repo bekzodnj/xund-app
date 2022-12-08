@@ -1,0 +1,87 @@
+[
+  {
+      "id": "41b2b9be-8ea2-4257-87c2-1e590e8762de",
+      "text": "Hi, I'm XUND. How can I help you?",
+      "type": "SINGLESELECT",
+      "answers": [
+          {
+              "id": "3e01788a-9e3b-4784-84d7-8e62210f6535",
+              "text": "Check my symptoms"
+          }
+      ]
+  },
+  {
+      "id": "00b1c70f-8c63-46bd-88ea-c44d03255ec9",
+      "text": "What's your biological gender?",
+      "type": "SINGLESELECT",
+      "answers": [
+          {
+              "id": "0a04ce0d-dd48-4c89-9b3f-69a605648b88",
+              "text": "Female"
+          },
+          {
+              "id": "134da4c9-8315-4985-8c59-bd23fa6d48ba",
+              "text": "Male"
+          }
+      ]
+  },
+  {
+      "id": "11b1c70f-8c63-46bd-88ea-c44d03255ec8",
+      "text": "How old are you?",
+      "type": "NUMBER"
+  },
+  {
+      "id": "152ddda9-99e8-4e9b-bf17-c83ee23a187b",
+      "text": "As a first step, we will identify the symptom that bothers you the most. Which symptom do you experience?",
+      "type": "SINGLESELECT",
+      "answers": [
+          {
+              "id": "163071d2-f2c7-4373-8343-f19ae7ecbfcc",
+              "text": "Fever"
+          },
+          {
+              "id": "1a6da498-85c2-4aca-9f9d-c42df3248411",
+              "text": "Headaches"
+          },
+          {
+              "id": "1ad6970e-8ba1-485b-b0aa-08f0861049d5",
+              "text": "Abdominal pain"
+          },
+          {
+              "id": "2b979147-7475-4ab9-800a-cb45383302f9",
+              "text": "Cough"
+          },
+          {
+              "id": "3bb5a6bf-aab7-4ed6-b449-0d155519124d",
+              "text": "Breathing difficulties"
+          },
+          {
+              "id": "3be2ec94-f6a5-420e-b3cd-cac501b44a6f",
+              "text": "Sickness"
+          }
+      ]
+  },
+  {
+      "id": "4d8a7a40-1a78-4ef7-b629-134c50df3cfd",
+      "text": "Based on your main complaint, I will suggest possible accompanying symptoms. Which other symptoms are you experiencing?",
+      "type": "SINGLESELECT",
+      "answers": [
+          {
+              "id": "5d8659fa-3fd9-48ee-b6c7-e357369f4611",
+              "text": "Arm pain"
+          },
+          {
+              "id": "6bf9d4e1-6658-497d-94b7-6c0faf4a4f2d",
+              "text": "Back pain"
+          },
+          {
+              "id": "6c5db2d5-a017-4ce0-8524-43a86ef0973b",
+              "text": "Burning eyes"
+          },
+          {
+              "id": "6c7629a7-9a47-4aab-9fb6-c83f12997a3d",
+              "text": "Chest pain"
+          }
+      ]
+  }
+]

@@ -6,7 +6,7 @@ export function HeroText({}) {
       <div className='w-32 mb-10'>
         <img src={mainLogo} alt='xund-logo' width={128} />
       </div>
-      <h2 className='font-semibold text-xl' style={{ color: '#2372b8' }}>
+      <h2 className='font-semibold text-xl text-deepblue'>
         Your health is in <i>your</i> hands
       </h2>
     </div>
