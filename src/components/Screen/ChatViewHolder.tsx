@@ -37,7 +37,6 @@ export function ChatViewHolder() {
       .then((response) => response.json())
       .then((data) => {
         setJsonData(data);
-        console.log(data);
       });
   }, []);
 
