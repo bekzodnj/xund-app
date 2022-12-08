@@ -32,7 +32,7 @@ type ChatScreenProps = {
  */
 const ChatScreen = ({ children }: ChatScreenProps) => {
   return (
-    <div className='bg-white pt-40 px-6 pb-9 w-full sm:w-5/12 min-w-fit'>
+    <div className='bg-white pt-40 px-6 pb-9 w-full sm:w-6/12 lg:w-5/12'>
       {children}
     </div>
   );
